@@ -1,0 +1,11 @@
+-Create a repository
+-Intialize The repo
+-node_module, pakage.json, pakage-lock-json
+-install express
+-create a server 
+-Listen to port 7777
+-write request handlers for /test, /hello
+-install nodemon and update script inside pakage.json
+-what are dependencies 
+-what is use of "-g" while install npm 
+-Diffrence between caret and tidle ("^" vs "~");
