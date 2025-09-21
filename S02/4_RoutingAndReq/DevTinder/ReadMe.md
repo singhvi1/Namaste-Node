@@ -17,4 +17,5 @@
     -Order of Routes Matter a lot top to down approch by routes
     -Install PostMan and make a workSpace/collection /test api calls
     -Write Logic to handle GET ,POST ,Patch, DELETE and test then all in postman
-    -Explore diffrent type of routing ->use of "?" , "+", "()","*"
+    -Explore diffrent type of routing ->use of "?" , "+", "()","*"\
+    -many wont work easily beacuse rule change in express 5
