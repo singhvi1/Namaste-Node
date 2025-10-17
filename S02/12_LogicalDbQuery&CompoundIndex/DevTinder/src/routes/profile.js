@@ -5,7 +5,6 @@ const {
   validateEditPassword,
 } = require("../utils/validation");
 const profileRouter = express.Router();
-const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 
 profileRouter.get("/profile/view", userAuth, async (req, res) => {
@@ -61,7 +60,7 @@ profileRouter.patch("/profile/password", userAuth, async (req, res) => {
       throw new Error("Password Change not allwoed");
     }
     const HashedPassword = await bcrypt.hash(newPassword, 10);
-    req.user.password=HashedPassword;
+    req.user.password = HashedPassword;
     await user.save();
     res.json({
       message: `password changed for ${user.firstName}`,
