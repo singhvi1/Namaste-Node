@@ -3,6 +3,7 @@ const { userAuth } = require("../middleware/auth");
 const ConnectionRequestModel = require("../models/connectionRequest");
 const requestRouter = express.Router();
 const User = require("../models/user");
+
 requestRouter.post(
   "/request/send/:status/:toUserId",
   userAuth,
@@ -29,8 +30,8 @@ requestRouter.post(
       //checking previous Connections:
       const existingConnectionReq = await ConnectionRequestModel.findOne({
         $or: [
-          ({ fromUserId, toUserId },
-          { fromUserId: toUserId, toUserId: fromUserId }),
+          { fromUserId, toUserId },
+          { fromUserId: toUserId, toUserId: fromUserId },
         ],
       });
       if (existingConnectionReq) {
@@ -48,7 +49,10 @@ requestRouter.post(
 
       //sending connection request
       res.json({
-        message: status ==="interested"? `${user?.firstName} send the connection request to ${toUser.firstName}`:`${user?.firstName} ignored the request of ${toUser.firstName}`,
+        message:
+          status === "interested"
+            ? `${user?.firstName} send the connection request to ${toUser.firstName}`
+            : `${user?.firstName} ignored the request of ${toUser.firstName}`,
         data,
       });
     } catch (err) {

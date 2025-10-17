@@ -23,10 +23,12 @@ const connectionRequestSchema = new mongoose.Schema(
 );
 
 
+connectionRequestSchema.index({fromUserId:1, toUserId:1})  //compoundIndex;
+
 
 connectionRequestSchema.pre("save",function(next){
   const connectionRequest=this;
-  //check if connection is from A->A
+  //check if connection is from A->A  also be written in 
   if(connectionRequest.fromUserId.equals(connectionRequest.toUserId)){
     throw new Error("Cannot send request to yourself")
   }

@@ -1,3 +1,14 @@
+# 12. LogicalDbQuery&CompoundIndexes:
+    -Create Connection Request Schema
+    -Send Connection Request Api
+    -Proper Validation of Data
+    -Think about all corner Cases
+    -$or Query $and Query in mongoose 
+    -Schema.pre("save",) fxn()  A-A
+    -Read more about indexes in Mongodb
+    -WHy do we need index in Db?
+
+
 # Diving Into the APIs and ExpressRouter
 
     -Explore tinder APIs

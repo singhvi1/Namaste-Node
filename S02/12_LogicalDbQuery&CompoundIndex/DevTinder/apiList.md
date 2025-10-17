@@ -16,7 +16,9 @@
 
     -POST /request/send/interested/:userId  
     -POST /request/send/ignored/:userrId
-    
+          
+Dyanmic as /request/send/:status/:toUserId
+
     -POST /request/review/accepted/:requestId
     -POST /request/review/rejected/:requestId
 
