@@ -25,7 +25,10 @@ authRouter.post("/login", async (req, res) => {
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
       });
 
-      res.send(`Login successfull ${user}`);
+      res.json({
+        message:"Login Successfull !!",
+        data:user
+      });
     } else {
       throw new Error("Invalid Crendential");
     }
