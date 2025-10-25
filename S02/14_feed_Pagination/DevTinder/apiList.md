@@ -29,4 +29,5 @@ Dyanmic as /request/send/:status/:toUserId
 
     -GET /user/connections                -D
     -GET /user/requests/received             -D                     
-    -GET /user/feed   "get us the profile of other users"
+    -GET /user/feed   "get us the profile of other users"      -D
+ 
