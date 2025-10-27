@@ -10,11 +10,7 @@ const Body = () => {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user,navigate]);
+
   const fetchUser = async () => {
     try {
       const res = await axios(BASE_URL + "/profile/view", {

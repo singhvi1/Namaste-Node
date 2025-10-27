@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/store/userSlice";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
 const Login = () => {
   const [emailId, setEmail] = useState("vk@gmil.com");
@@ -11,6 +13,12 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleLogin = async () => {
     try {
