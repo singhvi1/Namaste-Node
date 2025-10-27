@@ -26,5 +26,5 @@
     <!--DevTinder part 3 -->
     -we should not access other routes without login
     -if token is not present, redirect user to login page
-    -logout 
-    -profile
+    -logout  feature 
+    
