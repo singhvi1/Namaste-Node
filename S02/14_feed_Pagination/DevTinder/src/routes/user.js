@@ -9,7 +9,7 @@ const SAFE_DATA = [
   "lastName",
   "age",
   "gender",
-  "photUrl",
+  "photoUrl",
   "skills",
 ];
 
