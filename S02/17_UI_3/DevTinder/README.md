@@ -21,3 +21,10 @@
     - useDispatch and dispatch(addUser(..))
     -NavBar should update as soon as user login
     -navigate as login to / as / render feedComponent
+
+
+    <!--DevTinder part 3 -->
+    -we should not access other routes without login
+    -if token is not present, redirect user to login page
+    -logout 
+    -profile
