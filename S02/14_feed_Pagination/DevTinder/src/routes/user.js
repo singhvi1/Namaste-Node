@@ -11,6 +11,7 @@ const SAFE_DATA = [
   "gender",
   "photoUrl",
   "skills",
+  "about",
 ];
 
 //get all the //*pending request for loggedInUser

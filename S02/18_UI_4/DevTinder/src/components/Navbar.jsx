@@ -53,7 +53,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <a>Settings</a>
+                <NavLink to="/connections">Connectoins</NavLink>
+              </li>
+              <li>
+                <NavLink to="/requests">Requests</NavLink>
               </li>
               <li>
                 <NavLink onClick={handleLogout}>Logout</NavLink>

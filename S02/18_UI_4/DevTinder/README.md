@@ -31,4 +31,7 @@
     -build the user card on feed  user[0]
     -Edit Profile feature
     -show Toast Message on save of profile
+    -New Page -See all my connections
+    -New page -See all my conections request pending
+    -Feature -Accept/Reject Connection Request
     -

@@ -23,7 +23,6 @@ const Feed = () => {
     getFeed();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log(feed);
   return (
     feed && (
       <div className="flex justify-center h-screen items-center pb-20 mt-5">
