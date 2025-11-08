@@ -64,7 +64,7 @@ const userSchema = mongoose.Schema(
       type: String,
       validate(value) {
         if (!validator.isURL(value)) {
-          throw new Error("Phot url not valid");
+          throw new Error("Phot Url not valid");
         }
       },
       default:

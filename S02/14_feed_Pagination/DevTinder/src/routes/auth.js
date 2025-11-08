@@ -26,8 +26,8 @@ authRouter.post("/login", async (req, res) => {
       });
 
       res.json({
-        message:"Login Successfull !!",
-        data:user
+        message: "Login Successfull !!",
+        data: user,
       });
     } else {
       throw new Error("Invalid Crendential");
@@ -42,11 +42,18 @@ authRouter.post("/signup", async (req, res) => {
     validateSignUpData(req);
 
     const passwordHash = await bcrypt.hash(req.body.password, 10);
-    req.body.password=passwordHash;
+    req.body.password = passwordHash;
     //creating a new instance of User model
     const user = new User(req.body);
-    await user.save();
-    res.send("User added successfully");
+    const savedUser = await user.save();
+    const token = await savedUser.getJWT();
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+    });
+    res.json({
+      message: "User added successfully",
+      data: savedUser,
+    });
   } catch (err) {
     console.log(err.message);
     res.status(500).send(err.message);
