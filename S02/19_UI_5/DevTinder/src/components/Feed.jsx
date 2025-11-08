@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../utils/store/feedSlice";
@@ -8,8 +8,8 @@ import UserCard from "./UserCard";
 const Feed = () => {
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
+  const currUser=useSelector((store)=>store.user)
   const getFeed = async () => {
-    if (feed) return;
     try {
       const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
@@ -20,13 +20,21 @@ const Feed = () => {
     }
   };
   useEffect(() => {
-    getFeed();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (!feed || feed.length === 0) {
+      getFeed();
+    }
+  }, [currUser]);
+  if (!feed || feed.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <h1 className="text-3xl font-bold text-gray-500">No FEED Found 😢</h1>
+      </div>
+    );
+  }
   return (
     feed && (
       <div className="flex justify-center h-screen items-center pb-20 mt-5">
-        <UserCard user={feed[0]}  />
+        <UserCard user={feed[0]} />
       </div>
     )
   );

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/store/userSlice";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
@@ -33,7 +33,7 @@ const Login = () => {
       dispatch(addUser(res.data.data));
       navigate("/");
     } catch (err) {
-      setError(err?.response?.data  || "Something went wrong ")
+      setError(err?.response?.data || "Something went wrong ");
       console.error(err);
     }
   };
@@ -64,6 +64,17 @@ const Login = () => {
         <button className="btn btn-neutral mt-4" onClick={handleLogin}>
           Login
         </button>
+        <p className="px-6 py-2 text-sm text-center dark:text-gray-600 cursor-pointer">
+          Don't have an account yet?
+          <NavLink
+            rel="noopener noreferrer"
+            to="/signup"
+            className="hover:underline dark:text-violet-600"
+          >
+            Sign up
+          </NavLink>
+          .
+        </p>
       </fieldset>
     </div>
   );

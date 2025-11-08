@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/store/connectionSlice";
 
 
@@ -21,7 +21,15 @@ const Connections = () => {
     fetchConnections();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  if(!connections || connections.length ==0){
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <h1 className="text-3xl font-bold text-gray-500">
+          No Connections Found  😢
+        </h1>
+      </div>
+    )
+  }
   return (
     connections?.length > 0 && (
       <div className="my-10 mb-20">
