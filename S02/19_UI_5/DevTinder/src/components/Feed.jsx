@@ -4,11 +4,19 @@ import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../utils/store/feedSlice";
 import UserCard from "./UserCard";
+import { useNavigate } from "react-router";
 
 const Feed = () => {
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
   const currUser=useSelector((store)=>store.user)
+  const navigate=useNavigate()
+  useEffect(()=>{
+    if(!currUser){
+      return  navigate("/login",{ replace: true })
+    }
+  },[])
+
   const getFeed = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/feed", {
@@ -20,7 +28,7 @@ const Feed = () => {
     }
   };
   useEffect(() => {
-    if (!feed || feed.length === 0) {
+    if (currUser &&(!feed || feed.length === 0)) {
       getFeed();
     }
   }, [currUser]);

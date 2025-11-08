@@ -39,3 +39,4 @@
     -BUG : feed data when user changes 
     -feed filter silce : update feedSlice to update after action
     -Fix signup too after signUp token genrated auto for login
+    -Bug fix : when no user / to /login and { replace: true } in navigate
