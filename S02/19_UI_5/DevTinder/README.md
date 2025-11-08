@@ -34,4 +34,8 @@
     -New Page -See all my connections
     -New page -See all my conections request pending
     -Feature -Accept/Reject Connection Request
-    -
+    -send request :interested or :ignored 
+    -Signup form 
+    -BUG : feed data when user changes 
+    -feed filter silce : update feedSlice to update after action
+    -Fix signup too after signUp token genrated auto for login
