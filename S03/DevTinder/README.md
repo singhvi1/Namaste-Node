@@ -40,3 +40,10 @@
     -feed filter silce : update feedSlice to update after action
     -Fix signup too after signUp token genrated auto for login
     -Bug fix : when no user / to /login and { replace: true } in navigate
+
+    <!--DevTinder Season 03 -->
+    -signUp on aws
+    -lauch aws instance 
+    -ssh -i "DevTinder_Secret.pem" ubuntu@ec2-13-60-186-25.eu-north-1.compute.amazonaws.com   -> yes
+    -install node version and sudo apt update && sudo apt install -y libatomic1
+    -
