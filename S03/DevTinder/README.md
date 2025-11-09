@@ -40,6 +40,7 @@
     -feed filter silce : update feedSlice to update after action
     -Fix signup too after signUp token genrated auto for login
     -Bug fix : when no user / to /login and { replace: true } in navigate
+    -BUG FIX : autoReload Feed when get 0 -> feed.length
 
     <!--DevTinder Season 03 -->
     -signUp on aws

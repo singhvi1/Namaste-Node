@@ -15,7 +15,7 @@ const Feed = () => {
     if(!currUser){
       return  navigate("/login",{ replace: true })
     }
-  },[])
+  },[currUser, navigate])
 
   const getFeed = async () => {
     try {
@@ -28,10 +28,10 @@ const Feed = () => {
     }
   };
   useEffect(() => {
-    if (currUser &&(!feed || feed.length === 0)) {
+    if (currUser &&(!feed || feed?.length === 0)) {
       getFeed();
     }
-  }, [currUser]);
+  }, [currUser,feed?.length]);
   if (!feed || feed.length === 0) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
