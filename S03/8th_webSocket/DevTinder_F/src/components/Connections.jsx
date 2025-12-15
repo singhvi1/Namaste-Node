@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addConnections } from "../utils/store/connectionSlice";
+import { addConnections } from "../utils/store/connectionsSlice";
+import { NavLink } from "react-router";
+import {addConnection} from "../utils/store/connectionSlice"
 
 
 
@@ -17,11 +19,18 @@ const Connections = () => {
     });
     dispatch(addConnections(res.data.data));
   };
+  const handdleChatClick=(connection)=>{
+    dispatch(addConnection(connection))
+    console.log(connection)
+    console.log("addconnectin called")
+  }
+
+
   useEffect(() => {
     fetchConnections();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  if(!connections || connections.length ==0){
+  if (!connections || connections.length == 0) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
         <h1 className="text-3xl font-bold text-gray-500">
@@ -53,6 +62,12 @@ const Connections = () => {
                   {gender} • {age ? `${age} yrs` : "Age N/A"}
                 </p>
                 <p>{about || "No about info available."}</p>
+                <div className="buttons m-2 p-2 gap-10 flex">
+                  <NavLink to={`/chat/${_id}`}>
+                    <button className="btn btn-secondary" onClick={()=>handdleChatClick(connection)}>Chat</button>
+                  </NavLink>
+                  <button className="btn btn-primary">View</button>
+                </div>
               </li>
             );
           })}
